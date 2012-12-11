@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  ContactsDownloader
+
+  Created by Benjamin DOMERGUE on 10/12/12.
+  Copyright (c) 2012 Benjamin DOMERGUE. All rights reserved.
+*/
+
+"Failed to download" = "Failed to download contacts";
+"Number of lines" = "Number of lines: %d";
