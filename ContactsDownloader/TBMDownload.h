@@ -19,7 +19,7 @@
 }
 @property (nonatomic, retain) NSString *URL;
 @property (nonatomic, assign) NSTimer *timer;
-@property (nonatomic, retain) id <TBMDownloaderDelegate> delegate;
+@property (nonatomic, weak) id <TBMDownloaderDelegate> delegate;
 @property (nonatomic, retain) NSURLConnection *connection; // File might be large, we need a connection to allow asynchronous download
 @property (nonatomic, retain) NSMutableData *data;
 

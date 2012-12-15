@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030C25D116799DBB00E8C144 /* TBMDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030C25D016799DBB00E8C144 /* TBMDownloaderTests.m */; };
+		0395F1D51679A77100F474F0 /* TBMDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FC021676748700F1A68F /* TBMDownloader.m */; };
+		0395F1D71679A77100F474F0 /* TBMDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FC12167692BA00F1A68F /* TBMDownload.m */; };
+		03D40B15167BC8DC008478C9 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8D7FC191676A2B900F1A68F /* OCMock.framework */; };
 		C8D7FB751676603F00F1A68F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D7FB741676603F00F1A68F /* Cocoa.framework */; };
 		C8D7FB7F1676603F00F1A68F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8D7FB7D1676603F00F1A68F /* InfoPlist.strings */; };
 		C8D7FB811676603F00F1A68F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FB801676603F00F1A68F /* main.m */; };
@@ -16,8 +20,6 @@
 		C8D7FB8E1676603F00F1A68F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D7FB8C1676603F00F1A68F /* MainMenu.xib */; };
 		C8D7FB991676603F00F1A68F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D7FB981676603F00F1A68F /* SenTestingKit.framework */; };
 		C8D7FB9A1676603F00F1A68F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D7FB741676603F00F1A68F /* Cocoa.framework */; };
-		C8D7FBA21676603F00F1A68F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8D7FBA01676603F00F1A68F /* InfoPlist.strings */; };
-		C8D7FBA51676603F00F1A68F /* ContactsDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FBA41676603F00F1A68F /* ContactsDownloaderTests.m */; };
 		C8D7FC031676748700F1A68F /* TBMDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FC021676748700F1A68F /* TBMDownloader.m */; };
 		C8D7FC0816768A2F00F1A68F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8D7FC0A16768A2F00F1A68F /* Localizable.strings */; };
 		C8D7FC13167692BA00F1A68F /* TBMDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7FC12167692BA00F1A68F /* TBMDownload.m */; };
@@ -26,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C8D7FB9B1676603F00F1A68F /* PBXContainerItemProxy */ = {
+		03D40B121679C86C008478C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C8D7FB671676603F00F1A68F /* Project object */;
 			proxyType = 1;
@@ -35,7 +37,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		03D40B14167BC8B7008478C9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				03D40B15167BC8DC008478C9 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		030C25CF16799DBB00E8C144 /* TBMDownloaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDownloaderTests.h; sourceTree = "<group>"; };
+		030C25D016799DBB00E8C144 /* TBMDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDownloaderTests.m; sourceTree = "<group>"; };
+		030C25DA1679A4B900E8C144 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C8D7FB701676603F00F1A68F /* ContactsDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D7FB741676603F00F1A68F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C8D7FB771676603F00F1A68F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -52,9 +70,6 @@
 		C8D7FB971676603F00F1A68F /* ContactsDownloaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsDownloaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D7FB981676603F00F1A68F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C8D7FB9F1676603F00F1A68F /* ContactsDownloaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContactsDownloaderTests-Info.plist"; sourceTree = "<group>"; };
-		C8D7FBA11676603F00F1A68F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C8D7FBA31676603F00F1A68F /* ContactsDownloaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsDownloaderTests.h; sourceTree = "<group>"; };
-		C8D7FBA41676603F00F1A68F /* ContactsDownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsDownloaderTests.m; sourceTree = "<group>"; };
 		C8D7FC011676748700F1A68F /* TBMDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDownloader.h; sourceTree = "<group>"; };
 		C8D7FC021676748700F1A68F /* TBMDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDownloader.m; sourceTree = "<group>"; };
 		C8D7FC0916768A2F00F1A68F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -63,7 +78,6 @@
 		C8D7FC0D16768AF100F1A68F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C8D7FC0E16768AF100F1A68F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C8D7FC0F16768AF100F1A68F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = nl; path = nl.lproj/Credits.rtf; sourceTree = "<group>"; };
-		C8D7FC1016768AF100F1A68F /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C8D7FC11167692BA00F1A68F /* TBMDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMDownload.h; sourceTree = "<group>"; };
 		C8D7FC12167692BA00F1A68F /* TBMDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMDownload.m; sourceTree = "<group>"; };
 		C8D7FC15167692D900F1A68F /* TBMContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMContact.h; sourceTree = "<group>"; };
@@ -128,6 +142,7 @@
 			children = (
 				C8D7FB771676603F00F1A68F /* AppKit.framework */,
 				C8D7FB791676603F00F1A68F /* Foundation.framework */,
+				030C25DA1679A4B900E8C144 /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -155,9 +170,9 @@
 		C8D7FB9D1676603F00F1A68F /* ContactsDownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
-				C8D7FBA31676603F00F1A68F /* ContactsDownloaderTests.h */,
-				C8D7FBA41676603F00F1A68F /* ContactsDownloaderTests.m */,
 				C8D7FB9E1676603F00F1A68F /* Supporting Files */,
+				030C25CF16799DBB00E8C144 /* TBMDownloaderTests.h */,
+				030C25D016799DBB00E8C144 /* TBMDownloaderTests.m */,
 			);
 			path = ContactsDownloaderTests;
 			sourceTree = "<group>";
@@ -166,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				C8D7FB9F1676603F00F1A68F /* ContactsDownloaderTests-Info.plist */,
-				C8D7FBA01676603F00F1A68F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,6 +253,7 @@
 			buildConfigurationList = C8D7FBAB1676603F00F1A68F /* Build configuration list for PBXNativeTarget "ContactsDownloaderTests" */;
 			buildPhases = (
 				C8D7FB921676603F00F1A68F /* Sources */,
+				03D40B14167BC8B7008478C9 /* CopyFiles */,
 				C8D7FB931676603F00F1A68F /* Frameworks */,
 				C8D7FB941676603F00F1A68F /* Resources */,
 				C8D7FB951676603F00F1A68F /* ShellScript */,
@@ -246,7 +261,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C8D7FB9C1676603F00F1A68F /* PBXTargetDependency */,
+				03D40B131679C86C008478C9 /* PBXTargetDependency */,
 			);
 			name = ContactsDownloaderTests;
 			productName = ContactsDownloaderTests;
@@ -299,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D7FBA21676603F00F1A68F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,17 +352,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D7FBA51676603F00F1A68F /* ContactsDownloaderTests.m in Sources */,
+				0395F1D51679A77100F474F0 /* TBMDownloader.m in Sources */,
+				0395F1D71679A77100F474F0 /* TBMDownload.m in Sources */,
+				030C25D116799DBB00E8C144 /* TBMDownloaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C8D7FB9C1676603F00F1A68F /* PBXTargetDependency */ = {
+		03D40B131679C86C008478C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C8D7FB6F1676603F00F1A68F /* ContactsDownloader */;
-			targetProxy = C8D7FB9B1676603F00F1A68F /* PBXContainerItemProxy */;
+			targetProxy = 03D40B121679C86C008478C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -387,15 +403,6 @@
 				C8D7FC0C16768AF100F1A68F /* nl */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		C8D7FBA01676603F00F1A68F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C8D7FBA11676603F00F1A68F /* en */,
-				C8D7FC1016768AF100F1A68F /* nl */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		C8D7FC0A16768A2F00F1A68F /* Localizable.strings */ = {
@@ -488,7 +495,6 @@
 		C8D7FBAC1676603F00F1A68F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ContactsDownloader.app/Contents/MacOS/ContactsDownloader";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -498,7 +504,6 @@
 				GCC_PREFIX_HEADER = "ContactsDownloader/ContactsDownloader-Prefix.pch";
 				INFOPLIST_FILE = "ContactsDownloaderTests/ContactsDownloaderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -506,7 +511,6 @@
 		C8D7FBAD1676603F00F1A68F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ContactsDownloader.app/Contents/MacOS/ContactsDownloader";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -516,7 +520,6 @@
 				GCC_PREFIX_HEADER = "ContactsDownloader/ContactsDownloader-Prefix.pch";
 				INFOPLIST_FILE = "ContactsDownloaderTests/ContactsDownloaderTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -11,7 +11,12 @@
 
 static TBMDownloader *__sharedDownloader = nil;
 
+@interface TBMDownloader (/* For mocking purpose */)
+@property (nonatomic, retain) NSMutableArray *downloads;
+@end
+
 @implementation TBMDownloader
+@synthesize downloads = _downloads;
 
 + (TBMDownloader *)sharedDownloader
 {
@@ -37,18 +42,24 @@ static TBMDownloader *__sharedDownloader = nil;
 	[super dealloc];
 }
 
+- (TBMDownload *)_cleanDownload
+{
+	return [[[TBMDownload alloc] init] autorelease];
+}
+
 - (TBMDownload *)_downloadObjectWithURL:(NSString *)URLString delegate:(id <TBMDownloaderDelegate>)delegate
 {
-	TBMDownload *download = [[TBMDownload alloc] init];
+	TBMDownload *download = [self _cleanDownload];
 	download.delegate = delegate;
 	download.URL = URLString;
-	return [download autorelease];
+	return download;
 }
 
 - (void)_removeActiveDownloadWithDelegate:(id <TBMDownloaderDelegate>)delegate
 {
 	TBMDownload *downloadToRemove = nil;
-	for(TBMDownload *managedDownload in _downloads)
+	NSMutableArray *downloads = self.downloads;
+	for(TBMDownload *managedDownload in downloads)
 	{
 		if(managedDownload.delegate == delegate)
 		{
@@ -59,8 +70,19 @@ static TBMDownloader *__sharedDownloader = nil;
 	{
 		[downloadToRemove.timer invalidate];
 		[downloadToRemove.timer release];
-		[_downloads removeObject:downloadToRemove];
+		[downloads removeObject:downloadToRemove];
 	}
+}
+
+- (NSTimer *)_autoDownloadTimerWithInterval:(NSUInteger)interval download:(TBMDownload *)download
+{
+	
+	return [NSTimer timerWithTimeInterval:interval target:self selector:@selector(timerDidFire:) userInfo:download repeats:YES];
+}
+
+- (NSRunLoop *)_currentRunLoop
+{
+	return [NSRunLoop currentRunLoop];
 }
 
 - (void)downloadFileAtURL:(NSString *)URLString withInterval:(NSUInteger)interval delegate:(id <TBMDownloaderDelegate>)delegate
@@ -70,11 +92,11 @@ static TBMDownloader *__sharedDownloader = nil;
 	TBMDownload *download = [self _downloadObjectWithURL:URLString delegate:delegate];
 	if(interval != 0)
 	{
-		NSTimer *timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(timerDidFire:) userInfo:download repeats:YES];
+		NSTimer *timer = [self _autoDownloadTimerWithInterval:interval download:download];
 		download.timer = [timer retain];
-		[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+		[[self _currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 	}
-	[_downloads addObject:download];
+	[self.downloads addObject:download];
 	[self startDownload:download];
 }
 
@@ -85,6 +107,11 @@ static TBMDownloader *__sharedDownloader = nil;
 	return [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
 }
 
+- (NSMutableData *)_newMutableData
+{
+	return [[NSMutableData data] retain];
+}
+
 - (void)startDownload:(TBMDownload *)download
 {
 	NSURLConnection *connection = [self _connectionForURL:download.URL];
@@ -93,7 +120,7 @@ static TBMDownloader *__sharedDownloader = nil;
 		if(!download.connection)
 		{
 			download.connection = [connection retain];
-			download.data = [[NSMutableData data] retain];
+			download.data = [self _newMutableData];
 		}
 		else
 		{
@@ -115,7 +142,7 @@ static TBMDownloader *__sharedDownloader = nil;
 
 - (TBMDownload *)_downloadForConnection:(NSURLConnection *)connection
 {
-	for(TBMDownload *download in _downloads)
+	for(TBMDownload *download in self.downloads)
 	{
 		if(download.connection == connection)
 		{
@@ -140,11 +167,14 @@ static TBMDownloader *__sharedDownloader = nil;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+	NSLog(@"Error while downloading: %@", error);
+	
 	TBMDownload *download = [self _downloadForConnection:connection];
 	if(download)
 	{
 		[download.delegate downloadFailedWithURL:download.URL];
 		[download.data release];
+		download.data = nil;
 		download.connection = nil;
 	}
 	[connection release];
@@ -157,11 +187,12 @@ static TBMDownloader *__sharedDownloader = nil;
 	{
 		[download.delegate downloadSucceededWithURL:download.URL data:download.data];
 		[download.data release];
+		download.data = nil;
 		download.connection = nil;
 		
 		if(!download.timer)
 		{
-			[_downloads removeObject:download];
+			[self.downloads removeObject:download];
 		}
 	}
 	[connection release];

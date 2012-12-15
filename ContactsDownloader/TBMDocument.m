@@ -20,6 +20,8 @@
 
 - (NSDictionary *)_decodedDictionaryWithData:(NSData *)data;
 - (NSDictionary *)_archivableDictionary;
+
+- (void)_updateContactsCountLabel;
 - (void)_parseData:(NSData *)data;
 
 @end
@@ -127,6 +129,7 @@
 		[_contacts removeAllObjects];
 		[self _parseData:data];
 		[_contactTableView reloadData];
+		[self _updateContactsCountLabel];
 	}
 }
 
@@ -156,14 +159,16 @@
 	return [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 }
 
+- (void)_updateContactsCountLabel
+{
+	NSString *localizedStatus = NSLocalizedString(@"Number of lines", @"Number of lines localized string");
+	[_statusField setStringValue:[NSString stringWithFormat:localizedStatus, [_contacts count]]];
+}
+
 - (void)_parseData:(NSData *)data
 {
 	NSString *fileContent = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 	NSArray *lines = [fileContent componentsSeparatedByString:@"\n"];
-	
-	NSString *localizedStatus = NSLocalizedString(@"Number of lines", @"Number of lines localized string");
-	[_statusField setStringValue:[NSString stringWithFormat:localizedStatus, [lines count]]];
-	
 	for(NSString *line in lines)
 	{
 		NSArray *words = [line componentsSeparatedByString:@"\t"];

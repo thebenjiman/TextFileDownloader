@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 /* TBMDownloader : An utility object in charge of all download operations;
- * It handles an array of TBMDownload structures that can be automatically relaunched on the provided delay.
+ * It handles an array of TBMDownload that can be automatically relaunched on the provided delay.
  * It also notifies the specified delegate of the download of the success or fail of the operation.
  */
 
